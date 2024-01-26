@@ -1,0 +1,97 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+plugins {
+    alias(libs.plugins.io.freefrair.lombok)
+    id 'java'
+    id 'checkstyle'
+}
+
+group = "xm-assignment-api"
+description = "xm-assignment-api"
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+sourceSets.main.java.srcDirs = ['src/main/java']
+
+ext {
+    checkstyleVersion = "10.12.7"
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.google.guava:guava:30.1-jre'
+    }
+}
+
+tasks.withType(Test) {
+    testLogging {
+        events TestLogEvent.FAILED,
+                TestLogEvent.PASSED,
+                TestLogEvent.SKIPPED,
+                TestLogEvent.STANDARD_OUT
+        exceptionFormat TestExceptionFormat.FULL
+        showExceptions true
+        showCauses true
+        showStackTraces true
+    }
+
+    afterSuite {
+        description, result -> {
+            if (description.className) {
+                String className = description.className.split('\\.')[-1]
+                String passedTests = "${result.successfulTestCount}/${result.testCount}"
+                def duration = result.endTime - result.startTime
+                logger.quiet "[${className}]: ${passedTests} passed - ${duration}ms]"
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.org.assertj.assertj.core
+    implementation libs.io.rest.assured.rest.assured
+    implementation libs.io.rest.assured.json.path
+    implementation libs.io.rest.assured.xml.path
+    implementation libs.io.rest.assured.json.schema.validator
+    implementation libs.log4j.api
+    implementation libs.log4j.core
+    implementation libs.http.core
+    implementation libs.logback
+
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.engine
+}
+
+checkstyle {
+    toolVersion = checkstyleVersion
+    maxErrors = 0
+    maxWarnings = 0
+    ignoreFailures = false
+}
+
+tasks.withType(Checkstyle) {
+    source = ["src"]
+    showViolations = true
+    configFile file("${rootDir}/config/checkstyle/checkstyle.xml")
+    include "**/*.java"
+    exclude "${rootDir}/checkstyle.xml/build/**"
+
+    classpath = files()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

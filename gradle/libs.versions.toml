@@ -1,0 +1,33 @@
+[versions]
+org-junit-platform = "1.10.1"
+junit-jupiter = "5.10.1"
+guava = "33.0.0-jre"
+google-collections = "1.0"
+assertj-core = "3.25.1"
+io-rest-assured = "5.4.0"
+lombok = "8.4"
+org-project-lombok = "1.18.28"
+log4j = "2.22.1"
+httpcore = "4.4.16"
+logback = "1.4.14"
+
+[libraries]
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
+org-junit-platform-junit-platform-suite = { module = "org.junit.platform:junit-platform-suite", version.ref = "org-junit-platform" }
+org-junit-jupiter-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+org-assertj-assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj-core" }
+io-rest-assured-rest-assured = { module = "io.rest-assured:rest-assured", version.ref = "io-rest-assured" }
+io-rest-assured-json-path = { module = "io.rest-assured:json-path", version.ref = "io-rest-assured" }
+io-rest-assured-xml-path = { module = "io.rest-assured:xml-path", version.ref = "io-rest-assured" }
+io-rest-assured-json-schema-validator = { module = "io.rest-assured:json-schema-validator", version.ref = "io-rest-assured" }
+org-project-lombok = { module = "org.projectlombok:lombok", version.ref = "org-project-lombok" }
+google-guava = { module = "com.google.guava:guava", version.ref = "guava" }
+google-collections = { module = "com.google.collections:google-collections", version.ref = "google-collections" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+http-core = { module = "org.apache.httpcomponents:httpcore", version.ref = "httpcore" }
+logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+[plugins]
+io-freefrair-lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
