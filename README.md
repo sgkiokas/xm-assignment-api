@@ -6,4 +6,4 @@ code clean, `checkstyle` has been introduced.
 ## How to run the tests
 The tests are located in `src/test/java/api/test` folder. To build the project, along with checkstyle validation,
 please run `./gradlew clean build` on Mac or use the `gradlew.bat` for Windows. To simply run the tests, please run
-`./gradlew :test`.
+`./gradlew :test`. To do so, please delete the `build/` folder just in case first.

@@ -20,15 +20,15 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.apache.http.HttpStatus;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SwapiTest {
 
+    private static final Logger logger = LoggerFactory.getLogger(SwapiTest.class);
     RestClient restClient = new RestClient();
     TestUtils testUtils = new TestUtils();
-    Logger logger = LogManager.getLogger();
 
     @Test
     public void testVaderInformation() {
@@ -66,7 +66,8 @@ public class SwapiTest {
     public void testOldestPerson() {
         /*
             Since we want the persons only, we exclude robots and other creatures, we check the gender to be
-            male/female. Also, we have the birth_year BBY and ABY (BC and AD equivalent). Note that we might have an unknown value
+            male/female. Also, we have the birth_year BBY and ABY (BC and AD equivalent). Note that we might
+            have an unknown value
          */
         int pageIndex = 1;
         Map<String, String> nameAndAgeMap = new HashMap<>();
