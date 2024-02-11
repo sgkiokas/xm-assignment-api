@@ -1,24 +1,26 @@
 [versions]
-junit-jupiter = "5.10.1"
-assertj-core = "3.25.1"
+assertj-core    = "3.25.1"
+httpcore        = "4.4.16"
 io-rest-assured = "5.4.0"
-lombok = "8.4"
-log4j = "2.22.1"
-httpcore = "4.4.16"
-logback = "1.4.14"
+junit-jupiter   = "5.10.1"
+lombok          = "8.4"
+log4j           = "2.22.1"
+logback         = "1.4.14"
+snakeYaml       = "2.2"
 
 [libraries]
-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
-junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
-org-assertj-assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj-core" }
-io-rest-assured-rest-assured = { module = "io.rest-assured:rest-assured", version.ref = "io-rest-assured" }
-io-rest-assured-json-path = { module = "io.rest-assured:json-path", version.ref = "io-rest-assured" }
-io-rest-assured-xml-path = { module = "io.rest-assured:xml-path", version.ref = "io-rest-assured" }
+http-core                             = { module = "org.apache.httpcomponents:httpcore", version.ref = "httpcore" }
+io-rest-assured-json-path             = { module = "io.rest-assured:json-path", version.ref = "io-rest-assured" }
 io-rest-assured-json-schema-validator = { module = "io.rest-assured:json-schema-validator", version.ref = "io-rest-assured" }
-log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
-log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
-http-core = { module = "org.apache.httpcomponents:httpcore", version.ref = "httpcore" }
-logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+io-rest-assured-rest-assured          = { module = "io.rest-assured:rest-assured", version.ref = "io-rest-assured" }
+io-rest-assured-xml-path              = { module = "io.rest-assured:xml-path", version.ref = "io-rest-assured" }
+junit-engine                          = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
+junit-jupiter                         = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
+log4j-api                             = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
+log4j-core                            = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+logback                               = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+org-assertj-assertj-core              = { module = "org.assertj:assertj-core", version.ref = "assertj-core" }
+org-snakeyaml                         = { module = "org.yaml:snakeyaml", version.ref = "snakeYaml" }
 
 [plugins]
 io-freefrair-lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
