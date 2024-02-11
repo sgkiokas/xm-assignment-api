@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 
 public class SwapiTest {
 
-
     private static Config config;
     private final SchemaValidation schemaValidation = new SchemaValidation();
     private final PersonasRetrieval personasRetrieval = new PersonasRetrieval();
