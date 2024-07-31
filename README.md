@@ -10,3 +10,14 @@ please run `./gradlew clean build` on Mac or use the `gradlew.bat` for Windows. 
 
 ## Reporting
 After the test completion, you can find the reports in `build/reports/tests/test`.
+
+main -> new branch (local)
+commit1 (HEAD) -> commit1 (HEAD)
+
+                 commit2 (HEAD) (LOCAL)
+
+push -> commit2(HEAD) LOCAL + REMOTE
+PR -> merge
+main -> commit2(HEAD)
+
+parent branch -> child branch
